@@ -11,7 +11,7 @@ Feature: User should be able to Login with valid credentials
 
   Background:
     Given user is on the login Page
-
+@first_login
   Scenario: Login with simple user parameter
     When user enter user name "standard_user"
     And user enter password "secret_sauce"

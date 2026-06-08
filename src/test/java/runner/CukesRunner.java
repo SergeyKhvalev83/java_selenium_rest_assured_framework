@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
 
 
         dryRun = false, // true to get snippets (run feature file), false - run relevant step_definitions class
-        tags = "",
+        tags = "first_login",
         publish = true
 )
 
