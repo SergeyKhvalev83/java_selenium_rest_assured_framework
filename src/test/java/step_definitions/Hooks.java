@@ -1,11 +1,11 @@
 package step_definitions;
 
-import com.cydeo.utilities.BrowserUtils;
-import com.cydeo.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import unilities.BrowserUtils;
+import unilities.Driver;
 
 public class Hooks { // works for all steps_definitions file
     //@before we can define order to run - @Before(order = 1), @Before (order = 2), so on

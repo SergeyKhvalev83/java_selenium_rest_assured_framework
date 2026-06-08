@@ -19,31 +19,18 @@ public class Driver {
 
     private Driver() {
     }
-
-    // making driver instance private, so it is not reachable outside that class
-    // static because we will use it in static method, and we want it run before anything else
-
-
-    // create reusable utility method which will return same driver instance when call it
-
-   // private static WebDriver driver; // first time it will be null interchanged that to  private static InheritableThreadLocal <WebDriver> driverPool = new InheritableThreadLocal<>() in ordr to setup ability to use parallet testing
-
     private static InheritableThreadLocal <WebDriver> driverPool = new InheritableThreadLocal<>();
 
     public static WebDriver getDriver() {
-
-        //depending on the browserType our switch statement will determine to open specific type of browser/driver
         if (driverPool.get() == null) {
             String browserType = "";
             if(System.getProperty("BROWSER") == null){
                  browserType = ConfigurationReader.getProperty("browser").toLowerCase();
 
             } else {
-                browserType = System.getProperty("BROWSER");// value of BROWSER come from maven runner command in case if need run execution in SELENIUmGRID
+                browserType = System.getProperty("BROWSER");
             }
-
             switch (browserType) {
-
                 case "remote-chrome":
                     try {
                         // assign your grid server address
@@ -107,7 +94,6 @@ public class Driver {
         return driverPool.get();
     }
 
-// we use that method to close opened driver
 public static void closeDriver (){
        if (driverPool.get()!= null) {
            driverPool.get().quit(); // this line kill the current session, value will NOT null, because driver object still exist
