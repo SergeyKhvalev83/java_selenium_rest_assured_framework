@@ -21,8 +21,6 @@ public class login_step_definition {
 
     }
 
-
-
     @When("user enter password {string}")
     public void user_enter_password(String string) {
         login_page.password_input.sendKeys(string);

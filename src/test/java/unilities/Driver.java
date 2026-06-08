@@ -15,8 +15,6 @@ import java.util.concurrent.TimeUnit;
 public class Driver {
 
     // singlton conception bellow
-    // created private constructor, so we closing access to creating object of this class from another class
-
     private Driver() {
     }
     private static InheritableThreadLocal <WebDriver> driverPool = new InheritableThreadLocal<>();
@@ -96,8 +94,8 @@ public class Driver {
 
 public static void closeDriver (){
        if (driverPool.get()!= null) {
-           driverPool.get().quit(); // this line kill the current session, value will NOT null, because driver object still exist
-           driverPool.remove(); //- we assign driver object value NULL, now driver is null
+           driverPool.get().quit();
+           driverPool.remove();
        }
 }
 }
