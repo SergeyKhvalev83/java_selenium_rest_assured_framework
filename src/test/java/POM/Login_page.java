@@ -4,9 +4,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import unilities.Driver;
 
-public class login_page {
+public class Login_page {
 
-    public login_page(){
+    public Login_page(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
