@@ -43,8 +43,8 @@ Feature: User should be able to Login with valid credentials
     Examples: famous female scientists
       | username        | password     |
       | standard_user   | secret_sauce |
-      | secret_sauce    | secret_sauce |
+      | problem_user    | secret_sauce |
       | visual_user     | secret_sauce |
-      | Familybea       | secret_sauce |
+      | error_user       | secret_sauce |
 
 
