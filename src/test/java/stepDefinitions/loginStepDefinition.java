@@ -1,4 +1,4 @@
-package step_definitions;
+package stepDefinitions;
 import POM.Login_page;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -7,7 +7,7 @@ import unilities.ConfigurationReader;
 import unilities.Driver;
 import unilities.BrowserUtils;
 
-public class login_step_definition {
+public class loginStepDefinition {
     Login_page login_page = new Login_page();
 
     @Given("User is on login page")
