@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "stepDefinitions",
         dryRun = false, // true to get snippets (run feature file), false - run relevant step_definitions class
-        tags = "@first",
+        tags = "@Test",
         publish = true
 )
 

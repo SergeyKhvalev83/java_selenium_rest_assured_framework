@@ -25,14 +25,6 @@ public class BrowserUtils {
         }
     }
 
-
-    //Method info:
-    //• Name: verifyTitle()
-    //• Return type: void
-    //• Arg1: WebDriver
-    //• Arg2: String expectedTitle
-
-
     public static void verifyTitle(String expectedTitle) {
         String actualTitle = Driver.getDriver().getTitle();
 
