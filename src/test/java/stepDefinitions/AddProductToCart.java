@@ -16,6 +16,7 @@ public class AddProductToCart {
     String testItem = "Sauce Labs Backpack";
     String itemsCount = "1";
 
+
     @Given("the user is logged in and on Home page")
     public void the_user_is_logged_in_and_on_home_page() {
 
@@ -24,7 +25,9 @@ public class AddProductToCart {
 
     @When("the user clicks Add to cart for {string}")
     public void the_user_clicks_add_to_cart_for(String string) {
-        homePage.clickAddToCartBtn(string);
+       WebElement item = homePage.clickAddToCartBtn(string);
+       item.click();
+        BrowserUtils.sleep(2);
 
     }
 
@@ -34,13 +37,13 @@ public class AddProductToCart {
        WebElement cartLable = BrowserUtils.waitForVisibility(By.xpath("//span[text()='1'])"), 2);
      String cartBadge = cartLable.getText();
         Assert.assertEquals("Badge matched", itemsCount, cartBadge);
-
+        System.out.println("Badge matched" + itemsCount + cartBadge + "!!!!!!!!!!!!!!");
+        BrowserUtils.sleep(2);
 
     }
     @When("the user opens the shopping cart")
     public void the_user_opens_the_shopping_cart() {
         homePage.cartlink.click();
-
 
     }
     @Then("the product {string} should be displayed in the cart")

@@ -32,6 +32,7 @@ public class LoginStepDefinition {
 
     @Then("user should see url contains {string}")
     public void user_should_see_url_contains(String string) {
+       // BrowserUtils.alertsAccept(2);
         BrowserUtils.verifyURLContains(string);    }
 
 }

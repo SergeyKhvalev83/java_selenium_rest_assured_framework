@@ -11,7 +11,13 @@
 Feature: Add product to cart
 
   Background: Login with simple user parameter
-    @Test
+    Given User is on login page
+    When user enter username "standard_user"
+    And user enter password "secret_sauce"
+    And user click to login button
+    Then user should see url contains "inventory"
+
+    @addItemToCart
   Scenario: Add Sauce Labs Backpack to the cart
     Given the user is logged in and on Home page
     When the user clicks Add to cart for "Sauce Labs Backpack"

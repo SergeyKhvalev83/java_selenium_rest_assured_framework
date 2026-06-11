@@ -1,5 +1,5 @@
 Feature: User should be able to Login with valid credentials
-  @first
+  @Login
   Scenario: Login with simple user parameter
     Given User is on login page
     When user enter username "standard_user"

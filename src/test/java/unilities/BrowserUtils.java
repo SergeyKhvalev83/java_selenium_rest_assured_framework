@@ -15,6 +15,17 @@ import java.util.Set;
 
 public class BrowserUtils {
 
+
+    public static void alertsAccept(int timeToWaitInSec){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+        sleep(2);
+        System.out.println("Alert message accepted");
+    }
+
+
     public static void sleep(int seconds) { // this method we use to call in our code  Thread.sleep method with seconds during execution must sleep
 
         try { // we use try and catch blocks instead throws, because "throws" key word need use in method signature every time when we call that method.

@@ -14,6 +14,7 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+
     @FindBy(css = "div[class='app_logo']")
     public WebElement appLogo;
 

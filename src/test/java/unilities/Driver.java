@@ -10,6 +10,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
@@ -60,10 +62,34 @@ public class Driver {
 
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
+
+                    ChromeOptions options = new ChromeOptions();
+
+                    Map<String, Object> prefs = new HashMap<>();
+
+                    prefs.put("credentials_enable_service", false);
+                    prefs.put("profile.password_manager_enabled", false);
+                    prefs.put("profile.default_content_setting_values.notifications", 2);
+
+                    options.setExperimentalOption("prefs", prefs);
+                    options.addArguments("--guest");
+                    options.addArguments("--disable-save-password-bubble");
+                    options.addArguments("--disable-features=PasswordLeakDetection");
+
+                    driverPool.set(new ChromeDriver(options));
+
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+
+
+                   /*
+                    WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
+                    */
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver());
