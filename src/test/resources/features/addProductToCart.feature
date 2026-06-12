@@ -23,4 +23,4 @@ Feature: Add product to cart
     When the user clicks Add to cart for "Sauce Labs Backpack"
     Then the cart badge should display "1"
     When the user opens the shopping cart
-    Then the product "Sauce Labs Backpack" should be displayed in the cart
+    Then the product  should be displayed in the cart

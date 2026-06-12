@@ -14,7 +14,7 @@ import java.util.List;
 public class AddProductToCart {
     HomePage homePage = new HomePage();
     String testItem = "Sauce Labs Backpack";
-    String itemsCount = "1";
+    String testItemsCount = "1";
 
 
     @Given("the user is logged in and on Home page")
@@ -27,17 +27,15 @@ public class AddProductToCart {
     public void the_user_clicks_add_to_cart_for(String string) {
        WebElement item = homePage.clickAddToCartBtn(string);
        item.click();
-        BrowserUtils.sleep(2);
 
     }
 
 
     @Then("the cart badge should display {string}")
     public void the_cart_badge_should_display(String string) {
-       WebElement cartLable = BrowserUtils.waitForVisibility(By.xpath("//span[text()='1'])"), 2);
-     String cartBadge = cartLable.getText();
-        Assert.assertEquals("Badge matched", itemsCount, cartBadge);
-        System.out.println("Badge matched" + itemsCount + cartBadge + "!!!!!!!!!!!!!!");
+        WebElement cartLabel = BrowserUtils.waitForVisibility(By.xpath("//span[text()='"+string+"']"), 10);
+        String cartBadge = cartLabel.getText();
+        Assert.assertEquals("Badge matched", testItemsCount, cartBadge);
         BrowserUtils.sleep(2);
 
     }
@@ -46,16 +44,10 @@ public class AddProductToCart {
         homePage.cartlink.click();
 
     }
-    @Then("the product {string} should be displayed in the cart")
-    public void the_product_should_be_displayed_in_the_cart(String string) {
+    @Then("the product  should be displayed in the cart")
+    public void the_product_should_be_displayed_in_the_cart() {
         List<String> listOfItemsInCart = BrowserUtils.getElementsText(By.xpath("//div[@class='inventory_item_name']"));
         Assert.assertTrue(listOfItemsInCart.contains(testItem));
-
-
     }
-
-
-
-
 
 }
